@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<font face="times new roman">
+<textarea cols=82 rows=39>#include <cstdlib>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+void gotoxy(int x, int y)
+{
+COORD coord;
+coord.X = x;
+coord.Y = y;
+SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+int main(int argc, char *argv[])
+{
+int x,y;
+x=5+(41 % 3);
+y=11 + (41 % 2);
+for (int i=0;i<=x;i++) // pierwsza linia pozioma
+{
+gotoxy(i,0);
+cout<<"*";
+}
+for (int i=0;i<=y;i++) // pierwsza linia pionowa
+{
+gotoxy(0,i);
+cout<<"*";
+}
+for (int i=0;i<=y;i++) // druga linia pionowa
+{
+gotoxy(x,i);
+cout<<"*";
+}
+for (int i=0;i<=x;i++) // druga linia pozioma
+{
+gotoxy(i,1+y-1);
+cout<<"*";
+}
+system("PAUSE");
+return EXIT_SUCCESS;
+}</textarea>
+</font>
+</body>
+</html>
